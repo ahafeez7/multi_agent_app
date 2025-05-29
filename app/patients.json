@@ -1,0 +1,42 @@
+{
+  "John Doe": {
+    "chief_complaint": "Sharp stabbing pain on the right side of the face",
+    "duration": "2 weeks",
+    "location": "Jaw and cheek",
+    "triggers": "Touch, brushing teeth",
+    "previous_dental_work": "Yes, root canal 3 years ago",
+    "other_symptoms": "No numbness, no swelling"
+  },
+  "Jane Sani": {
+    "chief_complaint": "Facial pain near left temple, mild throbbing",
+    "duration": "1 week",
+    "location": "Left temporal region",
+    "triggers": "Stress",
+    "previous_dental_work": "No",
+    "other_symptoms": "Occasional headache"
+  },
+  "Ali Khan": {
+    "chief_complaint": "Pain in upper jaw triggered by cold air",
+    "duration": "3 days",
+    "location": "Right maxilla",
+    "triggers": "Cold exposure",
+    "previous_dental_work": "Filling 1 year ago",
+    "other_symptoms": "Mild swelling"
+  },
+  "Maria Gonzalez": {
+    "chief_complaint": "Shock-like pain in cheek during eating",
+    "duration": "10 days",
+    "location": "Left cheek",
+    "triggers": "Chewing",
+    "previous_dental_work": "No",
+    "other_symptoms": "Occasional tearing"
+  },
+  "KungFu Panda": {
+    "chief_complaint": "Intermittent facial pain and tingling",
+    "duration": "1 month",
+    "location": "Right side of face",
+    "triggers": "Light touch",
+    "previous_dental_work": "Tooth extraction 5 years ago",
+    "other_symptoms": "Tingling sensation"
+  }
+}
