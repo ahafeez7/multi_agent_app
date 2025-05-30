@@ -4,4 +4,4 @@ python-dotenv
 chromadb
 langchain
 sentence-transformers
-protobuf==3.20.*
+protobuf==3.20.*"pysqlite3-binary" 
