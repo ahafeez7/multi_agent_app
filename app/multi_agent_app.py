@@ -6,6 +6,7 @@ from fhir import create_fhir_service_request
 from populate_guidelines import populate_guideline_chroma
 from clinical_notes_store import initialize_embeddings, retrieve_similar_patients
 import json
+import sys
 
 st.write("Running Python version:", sys.version)
 
