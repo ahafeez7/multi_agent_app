@@ -27,10 +27,11 @@ class ClinicalBERTEmbeddingFunction(EmbeddingFunction):
     def name(self):
         return "Bio_ClinicalBERT"
 
+file_path = os.path.join(os.path.dirname(__file__), "patients.json")
 # --- Initialization Wrapper to Avoid Premature Streamlit Calls ---
 def initialize_embeddings():
     with st.spinner("🔄 Loading BioBERT model and embedding patients..."):
-        with open("patients.json", "r") as f:
+        with open(file_path, "r") as f:
             patient_options = json.load(f)
 
         embedding_function = ClinicalBERTEmbeddingFunction()
