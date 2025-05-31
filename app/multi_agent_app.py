@@ -8,10 +8,11 @@ from clinical_notes_store import initialize_embeddings, retrieve_similar_patient
 import json
 import sys
 
-st.write("Running Python version:", sys.version)
 
 st.set_page_config(page_title="Multi-Agent Diagnostic Assistant")
 st.title("🤖 Multi-Agent AI for Trigeminal Neuralgia Workup")
+
+st.write("Running Python version:", sys.version)
 
 collection = initialize_embeddings()
 
@@ -23,6 +24,7 @@ if st.sidebar.button("🔄 Refresh Guidelines DB"):
 # Select patient
 st.sidebar.header("👥 Select Patient")
 
+file_path = os.path.join(os.path.dirname(__file__), "patients.json")
 st.sidebar.subheader("📁 Upload Patients JSON (optional)")
 uploaded_file = st.sidebar.file_uploader("Choose patients.json", type="json")
 
@@ -30,7 +32,7 @@ if uploaded_file:
     patient_options = json.load(uploaded_file)
     st.sidebar.success("✔️ Patients loaded from uploaded file.")
 else:
-    with open("patients.json", "r") as f:
+    with open(file_path, "r") as f:
         patient_options = json.load(f)
 
 selected_patient = st.sidebar.selectbox("Patient", list(patient_options.keys()))
