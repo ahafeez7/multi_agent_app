@@ -1,7 +1,7 @@
 streamlit
 openai
 python-dotenv
-chromadb
+chromadb==0.4.24
 langchain
 sentence-transformers
 protobuf==3.20.*
