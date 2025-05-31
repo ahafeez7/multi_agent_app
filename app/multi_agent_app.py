@@ -7,6 +7,8 @@ from populate_guidelines import populate_guideline_chroma
 from clinical_notes_store import initialize_embeddings, retrieve_similar_patients
 import json
 
+st.write("Running Python version:", sys.version)
+
 st.set_page_config(page_title="Multi-Agent Diagnostic Assistant")
 st.title("🤖 Multi-Agent AI for Trigeminal Neuralgia Workup")
 
