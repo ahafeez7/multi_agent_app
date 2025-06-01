@@ -14,3 +14,9 @@
 # Optional (Not recommended if multiple users using this repo): to remove secrets from entire repo history -- make sure it's not in old commits
 # git filter-repo --path app/.streamlit/secrets.toml --invert-paths
 # git push --force
+**# git init
+**# git add README.md
+**# git commit -m "Initial commit"
+**# git branch -M main
+**# git remote add origin git@github.com:ahafeez7/multi_agent_healthcare_app.git
+**# git push -u origin main
