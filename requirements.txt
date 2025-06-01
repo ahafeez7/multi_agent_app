@@ -5,5 +5,5 @@ chromadb==0.4.24
 langchain
 sentence-transformers
 protobuf==3.20.*
-pysqlite3-binary
 numpy<1.25
+pysqlite3-binary ; platform_system == "Windows"
