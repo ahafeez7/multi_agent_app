@@ -3,8 +3,7 @@ import os
 import streamlit as st
 import chromadb
 from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
-
-
+from chromadb.config import Settings
 
 
 # Get API key from secrets
@@ -20,7 +19,10 @@ os.environ["CHROMA_OPENAI_API_KEY"] = api_key
 # Initialize Chroma with OpenAI embeddings
 def load_guideline_collection():
     embedding_fn = OpenAIEmbeddingFunction(api_key=os.getenv("CHROMA_OPENAI_API_KEY"))
-    client = chromadb.PersistentClient(path="./chroma_guidelines")
+    client = chromadb.Client(Settings(
+        chroma_db_impl="duckdb+parquet",
+        persist_directory="./chroma_guidelines"
+    ))
     return client.get_or_create_collection(name="clinical_guidelines", embedding_function=embedding_fn)
 
 def retrieve_guideline_snippet(history_text, top_k=1):

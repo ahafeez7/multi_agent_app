@@ -1,6 +1,7 @@
 import os
 import json
 import chromadb
+from chromadb.config import Settings
 from pathlib import Path
 from sentence_transformers import SentenceTransformer
 import streamlit as st
@@ -35,7 +36,10 @@ def initialize_embeddings():
             patient_options = json.load(f)
 
         embedding_function = ClinicalBERTEmbeddingFunction()
-        client = chromadb.PersistentClient(path="./chroma_clinical_notes")
+        client = chromadb.Client(Settings(
+            chroma_db_impl="duckdb+parquet",
+            persist_directory="./chroma_clinical_notes"
+        ))
         collection = client.get_or_create_collection(
             name="clinical_notes",
             embedding_function=embedding_function

@@ -1,6 +1,7 @@
 # populate_guidelines.py
 import chromadb
 from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
+from chromadb.config import Settings
 import os
 from dotenv import load_dotenv
 
@@ -17,7 +18,10 @@ GUIDELINE_SNIPPETS = [
 
 def populate_guideline_chroma():
     embedding_fn = OpenAIEmbeddingFunction(api_key=os.getenv("OPENAI_API_KEY"))
-    client = chromadb.PersistentClient(path="./chroma_guidelines")
+    client = chromadb.Client(Settings(
+        chroma_db_impl="duckdb+parquet",
+        persist_directory="./chroma_guidelines"
+    ))
     collection = client.get_or_create_collection("clinical_guidelines", embedding_function=embedding_fn)
 
     for i, snippet in enumerate(GUIDELINE_SNIPPETS):
