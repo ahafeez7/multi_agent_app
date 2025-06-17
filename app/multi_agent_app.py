@@ -1,8 +1,11 @@
 # multi_agent_app.py
 
-import sys
 import os
+os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"   #ensures env var set before protobuf
+
+import sys
 sys.path.append(os.path.dirname(__file__)) #ensures that the current folder is importable
+
 import streamlit as st
 from agents import PatientAgent, DoctorDentist, DoctorNeurologist
 from coding import map_to_icd10, map_to_snomed
