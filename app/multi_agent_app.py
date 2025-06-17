@@ -1,4 +1,8 @@
 # multi_agent_app.py
+
+import sys
+import os
+sys.path.append(os.path.dirname(__file__)) #ensures that the current folder is importable
 import streamlit as st
 from agents import PatientAgent, DoctorDentist, DoctorNeurologist
 from coding import map_to_icd10, map_to_snomed
@@ -6,8 +10,6 @@ from fhir import create_fhir_service_request
 from populate_guidelines import populate_guideline_chroma
 from clinical_notes_store import initialize_embeddings, retrieve_similar_patients
 import json
-import sys
-import os
 
 st.set_page_config(page_title="Multi-Agent Diagnostic Assistant")
 st.title("🤖 Multi-Agent AI for Trigeminal Neuralgia Workup")
