@@ -1,5 +1,4 @@
 # multi_agent_app.py
-
 import os
 os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"   #ensures env var set before protobuf
 
