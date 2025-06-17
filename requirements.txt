@@ -4,6 +4,6 @@ python-dotenv
 chromadb==0.4.24
 langchain
 sentence-transformers
-protobuf==3.20.*
+protobuf==3.19.*
 numpy>=1.25.0
 pysqlite3-binary ; platform_system == "Windows"
