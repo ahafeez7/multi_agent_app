@@ -1,1 +1,6 @@
-app/.streamlit/secrets.toml
+__pycache__/
+*.pyc
+*.sqlite3
+chroma_clinical_notes/
+chroma_guidelines/
+.streamlit\secrets.toml
