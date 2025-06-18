@@ -4,8 +4,8 @@ from dotenv import load_dotenv
 from langchain.prompts import PromptTemplate
 from validators import get_clinical_prompt
 from guideline_retriever import retrieve_guideline_snippet
-from openai import OpenAI
-from openai import APIError
+import openai
+from openai.error import APIError
 import streamlit as st
 import time
 
@@ -14,7 +14,7 @@ api_key = st.secrets.get("OPENAI_API_KEY")
 if not api_key:
     raise ValueError("OPENAI_API_KEY must be set in .streamlit/secrets.toml")
 
-client = OpenAI(api_key=api_key)
+openai.api_key = api_key
 
 #retry 3 times with a delay of 2 seconds
 def reason_about_patient(role, history, retries=3, delay=2):
@@ -35,7 +35,7 @@ Relevant clinical guideline excerpt:
 
     for attempt in range(retries):
         try:
-            response = client.chat.completions.create(
+            response = openai.ChatCompletion.create(
                 model="gpt-4-turbo",
                 messages=[
                     {"role": "system", "content": "You are a specialist clinician."},
@@ -55,4 +55,3 @@ Relevant clinical guideline excerpt:
             break
 
     return "Error in LLM reasoning: Failed after multiple attempts."
-
